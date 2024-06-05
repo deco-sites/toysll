@@ -14,6 +14,8 @@ export interface Props {
   products: Product[] | null;
   title?: string;
   description?: string;
+  /**@title Texto do botão */
+  textButton?:string;
   layout?: {
     numberOfSliders?: {
       mobile?: 1 | 2 | 3 | 4 | 5;
@@ -30,6 +32,7 @@ function ProductShelf({
   title,
   description,
   layout,
+  textButton
 }: Props) {
   const id = useId();
   const platform = usePlatform();
@@ -52,6 +55,13 @@ function ProductShelf({
     4: "w-1/4",
     5: "w-1/5",
   };
+
+  let stock:number|undefined;
+
+  products.map(( {offers} )=>{
+    offers?.offers.filter(( {inventoryLevel} )=>  stock = inventoryLevel.value); 
+  }) 
+
   return (
     <div class="w-full container py-8 flex flex-col gap-6 lg:py-10">
       <Header
@@ -84,6 +94,8 @@ function ProductShelf({
                 itemListName={title}
                 platform={platform}
                 index={index}
+                stock={stock}
+                textButton={textButton}
               />
             </Slider.Item>
           ))}

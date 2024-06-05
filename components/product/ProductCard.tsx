@@ -26,6 +26,8 @@ interface Props {
   index?: number;
 
   platform?: Platform;
+  stock?:number | undefined;
+  textButton?:string;
 }
 
 const WIDTH = 200;
@@ -36,7 +38,9 @@ function ProductCard({
   preload,
   itemListName,
   platform,
-  index,
+  index, 
+  stock,
+  textButton
 }: Props) {
   const { url, productID, name, image: images, offers, isVariantOf } = product;
   const id = `product-card-${productID}`;
@@ -208,12 +212,16 @@ function ProductCard({
           ou {installments}
         </span>
 
+        {stock && (
+          <span class={`text-right`}><span class={`text-[#0850be]`}>Estoque</span>: {stock}</span>
+        )}
+
         <a
           href={relativeUrl}
           aria-label="view product"
           class="btn btn-block"
         >
-          Ver produto
+          {textButton ? textButton : "Ver todos"}
         </a>
       </div>
     </div>
