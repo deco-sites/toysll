@@ -26,8 +26,8 @@ interface Props {
   index?: number;
 
   platform?: Platform;
-  stock?:number | undefined;
-  textButton?:string;
+  stock?: number | undefined;
+  textButton?: string;
 }
 
 const WIDTH = 200;
@@ -38,9 +38,9 @@ function ProductCard({
   preload,
   itemListName,
   platform,
-  index, 
+  index,
   stock,
-  textButton
+  textButton,
 }: Props) {
   const { url, productID, name, image: images, offers, isVariantOf } = product;
   const id = `product-card-${productID}`;
@@ -213,7 +213,9 @@ function ProductCard({
         </span>
 
         {stock && (
-          <span class={`text-right`}><span class={`text-[#0850be]`}>Estoque</span>: {stock}</span>
+          <span class={`text-right`}>
+            <span class={`text-[#0850be]`}>Estoque</span>: {stock}
+          </span>
         )}
 
         <a

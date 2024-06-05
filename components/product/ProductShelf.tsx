@@ -15,7 +15,7 @@ export interface Props {
   title?: string;
   description?: string;
   /**@title Texto do botão */
-  textButton?:string;
+  textButton?: string;
   layout?: {
     numberOfSliders?: {
       mobile?: 1 | 2 | 3 | 4 | 5;
@@ -32,7 +32,7 @@ function ProductShelf({
   title,
   description,
   layout,
-  textButton
+  textButton,
 }: Props) {
   const id = useId();
   const platform = usePlatform();
@@ -56,11 +56,11 @@ function ProductShelf({
     5: "w-1/5",
   };
 
-  let stock:number|undefined;
+  let stock: number | undefined;
 
-  products.map(( {offers} )=>{
-    offers?.offers.filter(( {inventoryLevel} )=>  stock = inventoryLevel.value); 
-  }) 
+  products.map(({ offers }) => {
+    offers?.offers.filter(({ inventoryLevel }) => stock = inventoryLevel.value);
+  });
 
   return (
     <div class="w-full container py-8 flex flex-col gap-6 lg:py-10">
