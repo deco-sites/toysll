@@ -1,3 +1,4 @@
+import { clx } from "../../sdk/clx.ts";
 /**
  * This component renders the filter and selectors for skus.
  * TODO: Figure out a better name for this component.
@@ -36,9 +37,15 @@ function Avatar({ content, variant = "default" }: Props) {
   return (
     <div class="avatar placeholder text-sm font-light h-6">
       <div
-        class={`${colors[content] ?? colors[variant]} ${variants[variant]}`}
+        class={clx(`${colors[content] ?? colors[variant]} ${variants[variant]} 
+          ${
+          content && content.includes("PP")
+            ? "bg-[#06e47f] !ring-[#06e47f] [&>.uppercase]:text-[#0f6f02] [&>.uppercase]:font-black"
+            : ""
+        }
+        `)}
       >
-        <span class="uppercase ">
+        <span class={`uppercase `}>
           {colors[content] ? "" : content.substring(0, 2)}
         </span>
       </div>

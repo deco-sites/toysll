@@ -75,7 +75,7 @@ function ProductCard({
         }}
       />
 
-      <div class="flex flex-col gap-2 lg:group-hover:-translate-y-2">
+      <div class="flex flex-col gap-2 lg:group-hover:-translate-y-2 n1-teste">
         <figure
           class="relative overflow-hidden"
           style={{ aspectRatio }}
