@@ -178,6 +178,8 @@
           }
         },
         "__resolveType": "site/loaders/Layouts/ProductCard.tsx"
+      },
+      "textButton": "Ver mais"
       }
     },
     {
