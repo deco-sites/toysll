@@ -1,6 +1,6 @@
 {
   "name": "Category",
-  "path": "/*",
+  "path": "/:slug",
   "default": {
     "possiblePaths": []
   },
